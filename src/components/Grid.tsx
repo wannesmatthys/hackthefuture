@@ -1,21 +1,18 @@
 import React from 'react';
+import { IGrid } from '../interfaces';
 import GridItem from './GridItem'
 
-const Grid = (): JSX.Element => {
+interface IProps {
+  grid: IGrid
+}
+
+const Grid = (props: IProps): JSX.Element => {
+  const { grid } = props;
+
   return (
     <div>
-      <h1 className="text-4xl text-center pb-4">00:54</h1>
-
       <div className="grid gap-4 grid-cols-3">
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
-      <GridItem text={"Bjebs"}/>
+        { grid.clues.map((item) => <GridItem text={item.text} key={item.id} />)}
     </div>
     </div>
   )
