@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useInterval } from 'usehooks-ts';
 import { useGame } from '../hooks/useGame';
-import { IGame, IGrid, IGuess } from '../interfaces';
+import { IGame, IGrid, IGuess, IGuessResult } from '../interfaces';
 import Grid from './Grid';
 import Guess from './Guess';
 import Notepad from './Notepad';
@@ -14,6 +14,7 @@ const Game = (): JSX.Element => {
   const [game, setGame] = useState<IGame>();
   const [gridNumber, setGridNumber] = useState<number>(0);
   const [secondsLeft, setSecondsLeft] = useState(5);
+  const [triggerResult, setTriggerResult] = useState<boolean>(false);
 
   useEffect(() => {
       getGame(lobbyCode ?? '').then((game: IGame) => {
@@ -30,7 +31,7 @@ const Game = (): JSX.Element => {
         location: "",
         murderer: "",
       }
-      guessGame(lobbyCode ?? '', guess).then(console.log);
+      setTriggerResult(true);
     }
     else if (secondsLeft === 0) {
       setGridNumber(gridNumber + 1);
@@ -45,7 +46,7 @@ const Game = (): JSX.Element => {
         { game?.data?.grids[gridNumber] ? <Grid grid={game.data.grids[gridNumber]} /> : null}
       </div>
       <div className="w-1/2 bg-gray-800 text-white p-6 h-screen">
-        <Notepad clues={game?.data.clues} />
+        <Notepad clues={game?.data.clues} triggerResult={triggerResult} />
       </div>
     </div>
   )
