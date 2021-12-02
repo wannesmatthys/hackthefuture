@@ -4,15 +4,15 @@ import { IGame } from "../interfaces";
 export const useGame = () => {
     const { post, get, response, loading, error } = useFetch('https://htf-api.hyperdrive.studio');
 
-    const getGame = async (gameCode: string): Promise<IGame> => {
-        return await get(`/game/${gameCode}`);
+    const getGame = async (lobbyCode: string): Promise<IGame> => {
+        return await get(`/game/${lobbyCode}`);
     }
 
-    const createGame = async (): Promise<IGame> => {
-        return await post('/game');
+    const startGame = async (lobbyCode: string): Promise<IGame> => {
+        return await post(`/game/${lobbyCode}/start`);
     }
     
     return {
-        getGame, createGame
+        getGame, startGame
     }
 }

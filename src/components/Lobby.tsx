@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Params, useParams } from 'react-router';
 import { useLobby } from '../hooks/useLobby';
+import { useGame } from '../hooks/useGame';
 import { ILobby } from '../interfaces';
 import Button from './base/Button'
 import { useInterval } from 'usehooks-ts';
@@ -9,6 +10,7 @@ import PlayerList from './PlayerList';
 const Lobby = (): JSX.Element => {
   const { lobbyCode } = useParams();
   const { getLobby } = useLobby();
+  const { getGame, startGame } = useGame();
   const [lobby, setLobby] = useState<ILobby>();
 
   useEffect(() => {
@@ -21,9 +23,11 @@ const Lobby = (): JSX.Element => {
 
   const owner = localStorage.getItem("lobbyOwner");
   
-  const onStartGame = () => {
-    // lobbyCode
+  const onStartGame = async () => {
+    console.log("starting game");
     
+    const game = await startGame(lobbyCode ?? '');
+    console.log(game);
   }
   
   return (
