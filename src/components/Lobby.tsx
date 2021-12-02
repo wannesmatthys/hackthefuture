@@ -15,7 +15,7 @@ const Lobby = (): JSX.Element => {
 
   useEffect(() => {
     getLobby(lobbyCode ?? '').then(setLobby);
-  });
+  }, [lobbyCode]);
 
   /*useInterval(() => {
       getLobby(lobbyCode ?? '').then(setLobby);
@@ -37,8 +37,8 @@ const Lobby = (): JSX.Element => {
           <h2 className="text-xl mb-1 font-bold">Players</h2>
           { lobby?.players ? <PlayerList players={lobby.players} /> : null}
         </div>
-        <Button text="Share code" />
-        <Button text="Start game" classes="block mt-6" onClick={onStartGame} />
+        <Button text="Share code" classes=""/>
+        <Button text="Start game" classes="mt-6" onClick={onStartGame} />
       </div>
     </div>
   )
