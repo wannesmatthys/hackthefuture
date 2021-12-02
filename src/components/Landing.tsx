@@ -20,8 +20,8 @@ const Landing = (): JSX.Element => {
 
   const handleClick = async () => {
       const playerId = localStorage.getItem("username") ?? '';
-
       const lobby: ILobby = await createLobby();
+      console.log(lobby);
       await joinLobby(lobby.lobbyCode, playerId);
       
       navigate(`/lobby/${lobby.lobbyCode}`);
