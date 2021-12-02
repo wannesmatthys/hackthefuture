@@ -1,21 +1,18 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import Header from './components/base/Header'
-import Button from './components/base/Button'
-import Input from './components/base/Input'
-import Landing from './components/Landing'
+import React from "react";
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
+import router from "./routes";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="flex justify-between flex-col min-h-screen">
-      <Header title={"HTF"}/>
-      <Landing />
-      <div className="bg-gray-100">Footer? :p</div>
-    </div>
-  )
+    let routes = useRoutes(router);
+    return routes;
 }
 
-export default App
+const AppWrapper = () => {
+  return (
+    <Router>
+      <App />
+    </Router>
+  );
+};
+
+export default AppWrapper;
