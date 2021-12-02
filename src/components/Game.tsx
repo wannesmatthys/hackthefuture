@@ -45,7 +45,7 @@ const Game = (): JSX.Element => {
         { game?.data?.grids[gridNumber] ? <Grid grid={game.data.grids[gridNumber]} /> : null}
       </div>
       <div className="w-1/2 bg-gray-800 text-white p-6 h-screen">
-        <Notepad />
+        <Notepad clues={game?.data.clues} />
       </div>
     </div>
   )
