@@ -9,7 +9,7 @@ import MissingPage from "../components/MissingPage";
 const router: RouteObject[] = [
   { path: "/", element: <Landing />},
   { path: "/join", element: <JoinLobby />},
-  { path: "/create", element: <CreateLobby />},
+  { path: "/lobby/:id", element: <CreateLobby />},
   { path: "/game", element: <Game />},
   { path: "*", element: <MissingPage />}
 ]

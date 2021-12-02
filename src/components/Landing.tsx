@@ -1,13 +1,15 @@
-import React from 'react';
 import { useLobby } from '../hooks/useLobby';
-import Button from './base/Button'
+import { ILobby } from '../interfaces';
+import Button from './base/Button';
+import { useNavigate } from "react-router-dom";
 
 const Landing = (): JSX.Element => {
   const { createLobby } = useLobby();
+  const navigate = useNavigate();
 
   const handleClick = async () => {
-      const lobby = await createLobby();
-      console.log(lobby);
+      const lobby: ILobby = await createLobby();
+      navigate(`/lobby/${lobby.lobbyCode}`);
   }
 
   return (
