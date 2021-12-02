@@ -14,6 +14,13 @@ const Lobby = (): JSX.Element => {
   useInterval(() => {
       getLobby(lobbyCode ?? '').then(setLobby);
   }, 2000);
+
+  const owner = localStorage.getItem("lobbyOwner");
+  
+  const onStartGame = () => {
+    // lobbyCode
+    
+  }
   
   return (
     <div className="flex justify-center pt-20">
@@ -25,6 +32,7 @@ const Lobby = (): JSX.Element => {
           { lobby?.players ? <PlayerList players={lobby.players} /> : null}
         </div>
         <Button text="Share code" />
+        { owner && <Button text="Start game" classes="block mt-6" onClick={onStartGame} /> }
       </div>
     </div>
   )

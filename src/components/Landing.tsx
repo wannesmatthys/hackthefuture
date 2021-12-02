@@ -12,6 +12,7 @@ const Landing = (): JSX.Element => {
 
   const handleClick = async () => {
       const lobby: ILobby = await createLobby();
+      localStorage.setItem("lobbyOwner", JSON.stringify(true))
       navigate(`/lobby/${lobby.lobbyCode}`);
   }
 
@@ -27,7 +28,6 @@ const Landing = (): JSX.Element => {
     username = name;
     localStorage.setItem("username", username);
   }
-
 
   return (
     <div className="flex justify-center pt-20">

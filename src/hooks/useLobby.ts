@@ -17,6 +17,6 @@ export const useLobby = () => {
     }
     
     return {
-        createLobby, joinLobby
+        createLobby, joinLobby, getLobby
     }
 }
