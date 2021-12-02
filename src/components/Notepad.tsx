@@ -43,7 +43,6 @@ const Notepad = (props: IProps): JSX.Element => {
     }, [clues]);
 
     useEffect(() => {
-        console.log(triggerResult);
         if (triggerResult) {
             const result = {
                 weapon: sortedClues?.weapons.find(clue => clue.selected === false)?.name ?? '',
