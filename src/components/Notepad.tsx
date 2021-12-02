@@ -1,35 +1,60 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router";
+import { useGame } from "../hooks/useGame";
+import { IGuessResult } from "../interfaces";
 
 interface IClue {
     id: string, 
     name: string,
     type: string,
+    selected: boolean 
 }
 
 interface IProps {
     clues: [IClue] | undefined,
+    triggerResult: boolean
+}
+
+interface SortedClues {
+    locations: IClue[],
+    weapons: IClue[],
+    murderers: IClue[]
 }
 
 const Notepad = (props: IProps): JSX.Element => {
-    const { clues } = props;
+    const { clues, triggerResult } = props;
 
-    const cluesSorted: {
-        locations: IClue[],
-        weapons: IClue[],
-        murderers: IClue[]
-    } = {
-        locations: [],
-        weapons: [],
-        murderers: [],
-    };
+    const [sortedClues, setSortedClues] = useState<SortedClues>();
+    const { guessGame } = useGame();
+    const navigate = useNavigate();
+    
+    const { lobbyCode } = useParams();
 
-    if (clues) {
-        cluesSorted.locations = clues.filter((clue) => clue.type === "location");
-        cluesSorted.weapons  = clues.filter((clue) => clue.type === "weapon");
-        cluesSorted.murderers = clues.filter((clue) => clue.type === "murderer");
+    useEffect(() => {
+        let cluesSorted: any = {};
 
-        console.log(cluesSorted);
-    }
+        if (clues) {
+            cluesSorted.locations = clues?.filter((clue) => clue.type === "location").map((clue) => ({...clue, selected: true}));
+            cluesSorted.weapons  = clues?.filter((clue) => clue.type === "weapon").map((clue) => ({...clue, selected: true}));
+            cluesSorted.murderers = clues?.filter((clue) => clue.type === "murderer").map((clue) => ({...clue, selected: true}));
+            setSortedClues(cluesSorted);
+        }
+        
+    }, [clues]);
+
+    useEffect(() => {
+        if (triggerResult) {
+            const result = {
+                weapon: sortedClues?.weapons.find(clue => clue.selected === false)?.name ?? '',
+                location: sortedClues?.locations.find(clue => clue.selected === false)?.name ?? '',
+                murderer: sortedClues?.murderers.find(clue => clue.selected === false)?.name ?? '',
+            };
+            guessGame(lobbyCode ?? '', result).then((result: IGuessResult) => {
+                localStorage.setItem("result", JSON.stringify(result));
+                navigate("/endscreen");
+            });
+        }
+    }, [triggerResult]);
 
     return (
         <div className="w-full h-full">
@@ -40,22 +65,27 @@ const Notepad = (props: IProps): JSX.Element => {
                     <h3 className="text-xl font-bold pb-5 pr-5 mb-7">Murderers</h3>
 
                     <ul className="text-xl leading-10">
-                        { cluesSorted.murderers.map(clue => <li key={clue.id}>{clue.name}</li>)}
+                        { sortedClues?.murderers.map(clue => <li key={clue.id} onClick={() => {
+                            clue.selected = !clue.selected;
+                        }} className={clue.selected === false ? "text-gray-500 line-through" : ""}>{clue.name}</li>)}
                     </ul>
                 </div>
                 <div className="border-r border-white w-1/3 pl-5">
                     <h3 className="text-xl font-bold pb-5 pr-5 mb-7">Weapons</h3>
 
                     <ul className="text-xl leading-10">
-                        {/* <li className="text-gray-500 line-through">Bill Bridge</li> */}
-                        { cluesSorted.weapons.map(clue => <li key={clue.id}>{clue.name}</li>)}
+                    { sortedClues?.weapons.map(clue => <li key={clue.id} onClick={() => {
+                            clue.selected = !clue.selected;
+                        }} className={clue.selected === false ? "text-gray-500 line-through" : ""}>{clue.name}</li>)}
                     </ul>
                 </div>
                 <div className=" w-1/3 pl-5">
                     <h3 className="text-xl font-bold pb-5 pr-5 mb-7">Location</h3>
 
                     <ul className="text-xl leading-10">
-                        { cluesSorted.locations.map(clue => <li key={clue.id}>{clue.name}</li>)}
+                    { sortedClues?.locations.map(clue => <li key={clue.id} onClick={() => {
+                            clue.selected = !clue.selected;
+                        }} className={clue.selected === false ? "text-gray-500 line-through" : ""}>{clue.name}</li>)}
                     </ul>
                 </div>
             </div>
