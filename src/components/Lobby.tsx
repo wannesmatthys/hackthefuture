@@ -20,8 +20,6 @@ const Lobby = (): JSX.Element => {
   /*useInterval(() => {
       getLobby(lobbyCode ?? '').then(setLobby);
   }, 2000);*/
-
-  const owner = localStorage.getItem("lobbyOwner");
   
   const onStartGame = async () => {
     console.log("starting game");
@@ -40,7 +38,7 @@ const Lobby = (): JSX.Element => {
           { lobby?.players ? <PlayerList players={lobby.players} /> : null}
         </div>
         <Button text="Share code" />
-        { owner && <Button text="Start game" classes="block mt-6" onClick={onStartGame} /> }
+        <Button text="Start game" classes="block mt-6" onClick={onStartGame} />
       </div>
     </div>
   )
