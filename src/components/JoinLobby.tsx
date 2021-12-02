@@ -12,11 +12,10 @@ const JoinLobby = (): JSX.Element => {
   const [lobbyId, setLobbyId ] = useState("");
 
   const onJoin = async () => {
-    const userName: string = localStorage.getItem("username") || "";
-    const body = {playerId: userName}
-    const lobby = await joinLobby(lobbyId, body);
+    const playerId = localStorage.getItem("username") || "";
+    const lobby = await joinLobby(lobbyId, playerId);
 
-    if (lobby) navigate("/create");
+    if (lobby) navigate(`/lobby/${lobby.lobbyCode}`);
   }
 
   return (

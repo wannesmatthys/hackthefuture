@@ -11,6 +11,10 @@ const Lobby = (): JSX.Element => {
   const { getLobby } = useLobby();
   const [lobby, setLobby] = useState<ILobby>();
 
+  useEffect(() => {
+    getLobby(lobbyCode ?? '').then(setLobby);
+  });
+
   useInterval(() => {
       getLobby(lobbyCode ?? '').then(setLobby);
   }, 2000);
