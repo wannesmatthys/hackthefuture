@@ -12,8 +12,11 @@ export const useLobby = () => {
         return await post('/lobby');
     }
     
+    async function joinLobby(id: string, body: {playerId: string}): Promise<ILobby> {        
+        return await post(`/lobby/${id}/join`, body);
+    }
+    
     return {
-        getLobby,
-        createLobby
+        createLobby, joinLobby
     }
 }
