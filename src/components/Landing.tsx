@@ -35,7 +35,6 @@ const Landing = (): JSX.Element => {
         <h1 className="text-2xl font-bold">HTF Game</h1>
         <p className="py-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus architecto veritatis nemo quam, voluptate iste laboriosam eum illum accusantium neque, ex unde esse ratione mollitia! Impedit molestias quis numquam eaque?</p>
         <div className="pt-4">
-<<<<<<< HEAD
           { username.length === 0 
             ?
             <div className='pb-4'>
@@ -44,22 +43,12 @@ const Landing = (): JSX.Element => {
               </div>
             :
             <div>
-              <Link to="create">
-                <Button text={"New lobby"} classes={"mr-4"} onClick={handleClick}/>
-              </Link>
+              <Button text={"New lobby"} classes={"mr-4"} onClick={handleClick}/>
               <Link to="join">
                 <Button text={"Join lobby"}/>
               </Link>
             </div>
           }
-
-          
-=======
-          <Button text={"New lobby"} classes={"mr-4"} onClick={handleClick}/>
-          <Link to="join">
-            <Button text={"Join lobby"}/>
-          </Link>
->>>>>>> fa2785f4cc4defae18a52728e49b2ab43ad894bd
         </div>
       </div>
     </div>
