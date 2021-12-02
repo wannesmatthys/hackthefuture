@@ -1,23 +1,22 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
-import Header from './components/base/Header'
-import Button from './components/base/Button'
-import Input from './components/base/Input'
-import Landing from './components/Landing'
-import CreateLobby from './components/CreateLobby'
-import JoinLobby from './components/JoinLobby'
-import Game from './components/Game'
+import React from "react";
+import { BrowserRouter as Router, useRoutes } from 'react-router-dom';
+import Header from "./components/base/Header";
+import router from "./routes";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
-      <Header title={"HTF"}/>
-      <Game />
-    </div>
-  )
+    return useRoutes(router);
 }
 
-export default App
+const AppWrapper = () => {
+  return (
+    <div>
+      <Header title="HFT" />
+
+      <Router>
+        <App />
+      </Router>
+    </div>
+  );
+};
+
+export default AppWrapper;
