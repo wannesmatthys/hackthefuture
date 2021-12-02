@@ -222,7 +222,7 @@
 
 "@babel/runtime@^7.7.6":
   version "7.16.3"
-  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.16.3.tgz#b86f0db02a04187a3c17caa77de69840165d42d5"
+  resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.16.3.tgz"
   integrity sha512-WBwekcqacdY2e9AF/Q7WLFUWmdJGJTkbjqTjoMDgXkVZ3ZRUvOPsLb5KdwISoQVsbP+DQzVZW4Zhci0DvpbNTQ==
   dependencies:
     regenerator-runtime "^0.13.4"
@@ -852,7 +852,7 @@ hex-color-regex@^1.1.0:
 
 history@^5.1.0:
   version "5.1.0"
-  resolved "https://registry.yarnpkg.com/history/-/history-5.1.0.tgz#2e93c09c064194d38d52ed62afd0afc9d9b01ece"
+  resolved "https://registry.npmjs.org/history/-/history-5.1.0.tgz"
   integrity sha512-zPuQgPacm2vH2xdORvGGz1wQMuHSIB56yNAy5FnLuwOwgSYyPKptJtcMm6Ev+hRGeS+GzhbmRacHzvlESbFwDg==
   dependencies:
     "@babel/runtime" "^7.7.6"
@@ -1217,7 +1217,7 @@ quick-lru@^5.1.1:
 
 react-dom@^17.0.2:
   version "17.0.2"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
+  resolved "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
   dependencies:
     loose-envify "^1.1.0"
@@ -1231,7 +1231,7 @@ react-refresh@^0.11.0:
 
 react-router-dom@^6.0.2:
   version "6.0.2"
-  resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-6.0.2.tgz#860cefa697b9d4965eced3f91e82cdbc5995f3ad"
+  resolved "https://registry.npmjs.org/react-router-dom/-/react-router-dom-6.0.2.tgz"
   integrity sha512-cOpJ4B6raFutr0EG8O/M2fEoyQmwvZWomf1c6W2YXBZuFBx8oTk/zqjXghwScyhfrtnt0lANXV2182NQblRxFA==
   dependencies:
     history "^5.1.0"
@@ -1239,7 +1239,7 @@ react-router-dom@^6.0.2:
 
 react-router@6.0.2:
   version "6.0.2"
-  resolved "https://registry.yarnpkg.com/react-router/-/react-router-6.0.2.tgz#bd2b0fa84fd1d152671e9f654d9c0b1f5a7c86da"
+  resolved "https://registry.npmjs.org/react-router/-/react-router-6.0.2.tgz"
   integrity sha512-8/Wm3Ed8t7TuedXjAvV39+c8j0vwrI5qVsYqjFr5WkJjsJpEvNSoLRUbtqSEYzqaTUj1IV+sbPJxvO+accvU0Q==
   dependencies:
     history "^5.1.0"
@@ -1269,7 +1269,7 @@ reduce-css-calc@^2.1.8:
 
 regenerator-runtime@^0.13.4:
   version "0.13.9"
-  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz#8925742a98ffd90814988d7566ad30ca3b263b52"
+  resolved "https://registry.npmjs.org/regenerator-runtime/-/regenerator-runtime-0.13.9.tgz"
   integrity sha512-p3VT+cOEgxFsRRA9X4lkI1E+k2/CtnKtU4gcxyaCUreilL/vqI6CdZ3wxVUx3UOUg+gnUOQQcRI7BmSI656MYA==
 
 resolve-from@^4.0.0:
@@ -1444,12 +1444,12 @@ universalify@^2.0.0:
 
 urs@^0.0.8:
   version "0.0.8"
-  resolved "https://registry.yarnpkg.com/urs/-/urs-0.0.8.tgz#8a0e0b792073cdb7eec926d08ab1e017ffab3f66"
+  resolved "https://registry.npmjs.org/urs/-/urs-0.0.8.tgz"
   integrity sha512-LaSSPpr91XrVA3vW2zPupw4K6DSQEDKdL4yQZX1mO2fpljIMpB5zctrjRvxLurelWSgKsHsCmfHNCImscryirQ==
 
 use-http@^1.0.26:
   version "1.0.26"
-  resolved "https://registry.yarnpkg.com/use-http/-/use-http-1.0.26.tgz#04faaa21a0389ff177531c7dfc2d73f021e6f3c4"
+  resolved "https://registry.npmjs.org/use-http/-/use-http-1.0.26.tgz"
   integrity sha512-yB0dXX2S0Doyiti/kHqMsvlShL3tlI8YkoEARao1OVFKrGvyXejmWvrYkEI+oVTPvUqGzOsHbNROY0qKDC88Pg==
   dependencies:
     urs "^0.0.8"
@@ -1458,8 +1458,13 @@ use-http@^1.0.26:
 
 use-ssr@^1.0.24:
   version "1.0.24"
-  resolved "https://registry.yarnpkg.com/use-ssr/-/use-ssr-1.0.24.tgz#213a3df58f5ab9268e6fe1a57ad0a9de91e514d1"
+  resolved "https://registry.npmjs.org/use-ssr/-/use-ssr-1.0.24.tgz"
   integrity sha512-0MFps7ezL57/3o0yl4CvrHLlp9z20n1rQZV/lSRz7if+TUoM6POU1XdOvEjIgjgKeIhTEye1U0khrIYWCTWw4g==
+
+usehooks-ts@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/usehooks-ts/-/usehooks-ts-2.1.0.tgz#55792b1e9b4b8ceb929a565012b22c34119e56a1"
+  integrity sha512-qSo7wbvdI70XygnPcTVTbKZVwDF2fpYPkYOrd/wUb2yRND02+7gYlUN6lwNyltwQilhLrUkhC7yiaLrdoNEwAg==
 
 util-deprecate@^1.0.2:
   version "1.0.2"
@@ -1468,7 +1473,7 @@ util-deprecate@^1.0.2:
 
 utility-types@^3.10.0:
   version "3.10.0"
-  resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.10.0.tgz#ea4148f9a741015f05ed74fd615e1d20e6bed82b"
+  resolved "https://registry.npmjs.org/utility-types/-/utility-types-3.10.0.tgz"
   integrity sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==
 
 vite@^2.6.4:
