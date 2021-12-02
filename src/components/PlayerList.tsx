@@ -7,7 +7,7 @@ const PlayerList = (props: IProps): JSX.Element => {
 
     return (
         <ul className="mb-3">
-            { players.map(player => <li>{player}</li>)}
+            { players.map(player => <li key={player}>{player}</li>)}
         </ul>
     )
 }

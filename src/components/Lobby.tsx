@@ -17,9 +17,9 @@ const Lobby = (): JSX.Element => {
     getLobby(lobbyCode ?? '').then(setLobby);
   });
 
-  useInterval(() => {
+  /*useInterval(() => {
       getLobby(lobbyCode ?? '').then(setLobby);
-  }, 2000);
+  }, 2000);*/
 
   const owner = localStorage.getItem("lobbyOwner");
   
