@@ -10,9 +10,8 @@ function App() {
 const AppWrapper = () => {
   return (
     <div>
-      <Header title="HFT" />
-
       <Router>
+        <Header title="HFT" />
         <App />
       </Router>
     </div>
