@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
 import { useInterval } from 'usehooks-ts';
 import { useGame } from '../hooks/useGame';
-import { IGame, IGrid } from '../interfaces';
+import { IGame, IGrid, IGuess } from '../interfaces';
 import Grid from './Grid';
 import Guess from './Guess';
 import Notepad from './Notepad';
 
 const Game = (): JSX.Element => {
   const { lobbyCode } = useParams();
-  const { getGame } = useGame();
+  const { getGame, guessGame } = useGame();
 
   const [game, setGame] = useState<IGame>();
   const [gridNumber, setGridNumber] = useState<number>(0);
-  const [secondsLeft, setSecondsLeft] = useState(60);
+  const [secondsLeft, setSecondsLeft] = useState(5);
 
   useEffect(() => {
       getGame(lobbyCode ?? '').then((game: IGame) => {
@@ -25,11 +25,16 @@ const Game = (): JSX.Element => {
     setSecondsLeft(secondsLeft - 1);
 
     if (secondsLeft === 0 && gridNumber === 2) {
-      // make guess :)
+      const guess: IGuess = {
+        weapon: "",
+        location: "",
+        murderer: "",
+      }
+      guessGame(lobbyCode ?? '', guess).then(console.log);
     }
     else if (secondsLeft === 0) {
       setGridNumber(gridNumber + 1);
-      setSecondsLeft(60);
+      setSecondsLeft(5);
     }
   }, 1000);
 

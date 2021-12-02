@@ -28,3 +28,15 @@ export interface IClue {
     id: string,
     text: string
 }
+
+export interface IGuessResult {
+    murderer: true,
+    weapon: true,
+    location: true
+}
+
+export interface IGuess {
+    murderer: string,
+    weapon: string,
+    location: string
+}
