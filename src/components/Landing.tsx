@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 import {Link} from 'react-router-dom';
 
 const Landing = (): JSX.Element => {
-  const { createLobby } = useLobby();
+  const { createLobby, joinLobby } = useLobby();
   const navigate = useNavigate();
 
   const [username, setUsername] = useState('');
@@ -19,7 +19,11 @@ const Landing = (): JSX.Element => {
   }, []);
 
   const handleClick = async () => {
+      const playerId = localStorage.getItem("username") ?? '';
+
       const lobby: ILobby = await createLobby();
+      await joinLobby(lobby.lobbyCode, playerId);
+      
       navigate(`/lobby/${lobby.lobbyCode}`);
   }
 
