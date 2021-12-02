@@ -11,7 +11,7 @@ const Button = (props: IProps): JSX.Element => {
     const { text, classes, type, onClick } = props;
 
     return (
-        <button type={type ? type : "button"} className={`px-6 py-4 bg-black text-white ${classes} rounded-md text-center`} onClick={onClick}>{ text }</button>
+        <button type={type ? type : "button"} className={`px-6 py-4 bg-black text-white rounded-md text-center ${classes}`} onClick={onClick}>{ text }</button>
     )
 }
 

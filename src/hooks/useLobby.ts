@@ -19,8 +19,6 @@ export const useLobby = () => {
     }
     
     return {
-        createLobby, 
-        getLobby, 
-        joinLobby
+        createLobby, joinLobby, getLobby
     }
 }

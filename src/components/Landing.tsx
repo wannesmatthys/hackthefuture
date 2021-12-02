@@ -32,7 +32,6 @@ const Landing = (): JSX.Element => {
     localStorage.setItem("username", name);
   }
 
-
   return (
     <div className="flex justify-center pt-20">
       <div className="text-center w-1/3">
@@ -55,8 +54,6 @@ const Landing = (): JSX.Element => {
               </Link>
             </div>
           }
-
-          
         </div>
       </div>
     </div>
