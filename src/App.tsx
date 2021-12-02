@@ -4,16 +4,14 @@ import Header from "./components/base/Header";
 import router from "./routes";
 
 function App() {
-    let routes = useRoutes(router);
-    return routes;
+    return useRoutes(router);
 }
 
 const AppWrapper = () => {
   return (
     <div>
-      <Header title="HFT" />
-
       <Router>
+        <Header title="HFT" />
         <App />
       </Router>
     </div>
