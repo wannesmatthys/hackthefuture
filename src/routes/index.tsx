@@ -10,7 +10,7 @@ const router: RouteObject[] = [
   { path: "/", element: <Landing />},
   { path: "/join", element: <JoinLobby />},
   { path: "/lobby/:lobbyCode", element: <Lobby />},
-  { path: "/game", element: <Game />},
+  { path: "/game/:lobbyCode", element: <Game />},
   { path: "*", element: <MissingPage />}
 ]
 

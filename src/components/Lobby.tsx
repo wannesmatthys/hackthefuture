@@ -1,31 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Params, useParams } from 'react-router';
+import { Params, useNavigate, useParams } from 'react-router';
 import { useLobby } from '../hooks/useLobby';
 import { useGame } from '../hooks/useGame';
 import { ILobby } from '../interfaces';
 import Button from './base/Button'
-import { useInterval } from 'usehooks-ts';
 import PlayerList from './PlayerList';
 
 const Lobby = (): JSX.Element => {
   const { lobbyCode } = useParams();
   const { getLobby } = useLobby();
-  const { getGame, startGame } = useGame();
+  const { startGame } = useGame();
   const [lobby, setLobby] = useState<ILobby>();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     getLobby(lobbyCode ?? '').then(setLobby);
-  });
+  }, [lobbyCode]);
 
-  /*useInterval(() => {
-      getLobby(lobbyCode ?? '').then(setLobby);
-  }, 2000);*/
-  
   const onStartGame = async () => {
-    console.log("starting game");
-    
-    const game = await startGame(lobbyCode ?? '');
-    console.log(game);
+    await startGame(lobbyCode ?? '');
+    navigate(`/game/${lobbyCode}`);
   }
   
   return (
