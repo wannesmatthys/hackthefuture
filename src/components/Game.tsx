@@ -26,7 +26,7 @@ const Game = (): JSX.Element => {
         {/* <Guess /> */}
       </div>
       <div className="w-1/2 bg-gray-800 text-white p-6 h-screen">
-        <Notepad />
+        <Notepad clues={game?.data.clues} />
       </div>
     </div>
   )
