@@ -3,7 +3,7 @@ import Button from './base/Button'
 
 const Landing = (): JSX.Element => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="flex justify-center pt-20">
       <div className="text-center w-1/3">
         <h1 className="text-2xl font-bold">HTF Game</h1>
         <p className="py-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus architecto veritatis nemo quam, voluptate iste laboriosam eum illum accusantium neque, ex unde esse ratione mollitia! Impedit molestias quis numquam eaque?</p>
