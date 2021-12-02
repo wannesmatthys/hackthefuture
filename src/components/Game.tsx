@@ -7,10 +7,10 @@ const Game = (): JSX.Element => {
   return (
     <div className="flex h-screen items-center">
       <div className="w-1/2 p-6">
-        {/* <Grid /> */}
-        <Guess />
+        <Grid />
+        {/* <Guess /> */}
       </div>
-      <div className="w-1/2 bg-gray-800 text-white p-6">
+      <div className="w-1/2 bg-gray-800 text-white p-6 h-screen">
         <Notepad />
       </div>
     </div>
