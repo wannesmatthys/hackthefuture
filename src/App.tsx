@@ -1,12 +1,15 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import Button from './components/base/Button'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <div className="bg-red-500">Test</div>
+    <div className="m-5">
+      <Button text="Start game" />
+    </div>
   )
 }
 
